@@ -68,16 +68,15 @@ public class VisitorController {
 
                 <div class="container">
 
-                 <img src="/click-me.png" alt="Click Me">
+                
                                   
-                                  <p style="margin-top: 20px;">
-                                  </p>
-                                  
-                                  <form action="/consent" method="post">
-                                      <button type="submit">
-                                          Continue
-                                      </button>
-                                  </form>
+                          
+                                 <button type="submit"
+                                                     style="border:0; padding:0; background:none; cursor:pointer;">
+                                                 <img src="/click-me.png"
+                                                      alt="Click Me"
+                                                      style="max-width:100%; height:auto;">
+                                             </button>
 
                 </div>
 
