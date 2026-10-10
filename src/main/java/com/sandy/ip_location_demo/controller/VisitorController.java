@@ -17,72 +17,101 @@ public class VisitorController {
 
     @GetMapping("/visit")
     public String visit() {
-
         return """
+                <!DOCTYPE html>
                 <html>
+                <head>
+                    <title>Click Me 😈</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            background: #f5f5f5;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 100vh;
+                        }
+
+                        .container {
+                            text-align: center;
+                        }
+
+                        img {
+                            width: 90%;
+                            max-width: 700px;
+                            border-radius: 20px;
+                            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+                        }
+
+                        button {
+                            display: block;
+                            margin: 20px auto;
+                            padding: 15px 50px;
+                            font-size: 22px;
+                            font-weight: bold;
+                            border: none;
+                            border-radius: 30px;
+                            background: #ffd21c;
+                            cursor: pointer;
+                        }
+                    </style>
+                </head>
+
                 <body>
-                    <h2>📍 Location Demo</h2>
 
-                    <p>
-                        This demo uses your IP address to estimate
-                        your approximate city/state/country.
-                    </p>
+                <div class="container">
 
-                    <p>
-                        Your location is not precise GPS location.
-                    </p>
+                    <img src="/click-me.png" alt="Click Me">
 
-                    <form method="post" action="/visit/consent">
+                    <form action="/consent" method="post">
                         <button type="submit">
-                            Continue and share approximate location
+                            🐒 Click Me!
                         </button>
                     </form>
+
+                </div>
+
                 </body>
                 </html>
                 """;
     }
 
-    @PostMapping("/visit/consent")
+    @PostMapping("/consent")
     public String consent(HttpServletRequest request) {
 
         String ip = request.getRemoteAddr();
 
-        System.out.println("Visitor IP: " + ip);
-        System.out.println("User Agent: " + request.getHeader("User-Agent"));
-
         service.saveVisitor(ip);
 
-        var geo = service.saveVisitor(ip);
-
-        if (geo == null) {
-            return """
-            <html>
-            <body>
-                <h2>⚠️ Local development</h2>
-                <p>
-                    Your browser is connected to localhost,
-                    so a public IP location cannot be determined.
-                </p>
-            </body>
-            </html>
-            """;
-        }
-
         return """
-        <html>
-        <body>
-            <h2>✅ Approximate Location</h2>
-            <p>City: %s</p>
-            <p>State/Region: %s</p>
-            <p>Country: %s</p>
-            </body>
-        </html>
-        """.formatted(
-                geo.city(),
-                geo.region(),
-                geo.country()
-        );
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>HAHAHA 😂</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            background: #111;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 100vh;
+                        }
+
+                        img {
+                            width: 90%;
+                            max-width: 700px;
+                            border-radius: 20px;
+                        }
+                    </style>
+                </head>
+
+                <body>
+
+                    <img src="/got-you.png" alt="HAHAHA GOT YOU!">
+
+                </body>
+                </html>
+                """;
     }
-
-
 }
