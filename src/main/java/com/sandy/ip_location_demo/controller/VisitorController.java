@@ -21,10 +21,13 @@ public class VisitorController {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>Click Me 😈</title>
                     <meta property="og:title" content="Click Me 🐵">
                     <meta property="og:description" content="Something fun for you 😄">
                     <meta property="og:image" content="https://ip-location-demo-xz1z.onrender.com/click-me.png">
+                    <meta property="og:image:type" content="image/png">
+                    <meta property="og:image:width" content="1295">
+                    <meta property="og:image:height" content="1214">
+                    <meta property="og:url" content="https://ip-location-demo-xz1z.onrender.com/visit">
                     <meta property="og:type" content="website">
                     <style>
                         body {
